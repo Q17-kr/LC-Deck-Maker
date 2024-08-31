@@ -9,7 +9,7 @@ st.write(" \n ")
 st.write(" \n ")
 
 Input, Output = st.columns(2)
-inputSinners, inputEGO = Input.columns(2)
+inputSinners, inputId = Input.columns(2)
 
 with inputSinners:
     sinners = ["이상", "파우스트", "돈키호테", "료슈", "뫼르소", "홍루",
@@ -25,10 +25,10 @@ with inputSinners:
     if has_duplicates([sinner1,sinner2,sinner3,sinner4,sinner5,sinner6]):
         st.error("중복된 수감자가 있습니다.")
 
-with inputEGO:
-    ego1 = inputEGO.selectbox("", sinners, index=None, placeholder="주로 사용하는 E.G.O 선택", label_visibility="collapsed", key="e1")
-    ego2 = inputEGO.selectbox("", sinners, index=None, placeholder="주로 사용하는 E.G.O 선택", label_visibility="collapsed", key="e2")
-    ego3 = inputEGO.selectbox("", sinners, index=None, placeholder="주로 사용하는 E.G.O 선택", label_visibility="collapsed", key="e3")
-    ego4 = inputEGO.selectbox("", sinners, index=None, placeholder="주로 사용하는 E.G.O 선택", label_visibility="collapsed", key="e4")
-    ego5 = inputEGO.selectbox("", sinners, index=None, placeholder="주로 사용하는 E.G.O 선택", label_visibility="collapsed", key="e5")
-    ego6 = inputEGO.selectbox("", sinners, index=None, placeholder="주로 사용하는 E.G.O 선택", label_visibility="collapsed", key="e6")
+with inputId:
+    id1 = inputId.selectbox("", sinners, index=None, placeholder="인격 선택", label_visibility="collapsed", key="e1")
+    id2 = inputId.selectbox("", sinners, index=None, placeholder="인격 선택", label_visibility="collapsed", key="e2")
+    id3 = inputId.selectbox("", sinners, index=None, placeholder="인격 선택", label_visibility="collapsed", key="e3")
+    id4 = inputId.selectbox("", sinners, index=None, placeholder="인격 선택", label_visibility="collapsed", key="e4")
+    id5 = inputId.selectbox("", sinners, index=None, placeholder="인격 선택", label_visibility="collapsed", key="e5")
+    id6 = inputId.selectbox("", sinners, index=None, placeholder="인격 선택", label_visibility="collapsed", key="e6")

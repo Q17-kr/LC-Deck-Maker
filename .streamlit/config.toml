@@ -1,0 +1,12 @@
+[global]
+
+showWarningOnDirectExecution = false
+
+
+
+[server]
+
+runOnSave = true
+
+enableXsrfProtection = false
+enableCORS = false
