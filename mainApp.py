@@ -2,9 +2,7 @@ import streamlit as st
 import os
 from application import baseDef
 
-if 'page_set' not in st.session_state:
-    st.set_page_config(layout="wide")
-    st.session_state['page_set'] = True
+st.set_page_config(layout="wide")
 
 def main():
     baseDef.start_data()
