@@ -2,6 +2,15 @@ import streamlit as st
 import pandas as pd
 # from bs4 import BeautifulSoup
 import os
+from application import baseDef as bd
+
+bd.start_data()
+
+st.title("림버스 컴퍼니 파티메이커")
+st.write(" \n ")
+st.write(" \n ")
+
+st.sidebar.markdown("## Limbus Company Deck Maker")
 
 @st.cache_data
 def get_keyword():

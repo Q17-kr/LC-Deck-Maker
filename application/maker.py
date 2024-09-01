@@ -51,6 +51,12 @@ def real_format(value):
 
 bd.start_data()
 
+st.title("림버스 컴퍼니 파티메이커")
+st.write(" \n ")
+st.write(" \n ")
+
+st.sidebar.markdown("## Limbus Company Deck Maker")
+
 Id = st.session_state["id"]
 ego = st.session_state["ego"]
 li = st.session_state["list"]

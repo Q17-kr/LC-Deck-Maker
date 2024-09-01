@@ -25,6 +25,14 @@ def color_sin_char(val):
     
     return color.get(val, "")
 
+bd.start_data()
+
+st.title("림버스 컴퍼니 파티메이커")
+st.write(" \n ")
+st.write(" \n ")
+
+st.sidebar.markdown("## Limbus Company Deck Maker")
+
 bd.make_egoList()
 
 ego = st.session_state["ego"].copy()

@@ -1,7 +1,5 @@
 import streamlit as st
 import os
-from application import baseDef
-
 
 def main():
 
@@ -17,13 +15,6 @@ def main():
                           })
 
     st.set_page_config(layout="wide")
-    baseDef.start_data()
-
-    st.title("림버스 컴퍼니 파티메이커")
-    st.write(" \n ")
-    st.write(" \n ")
-
-    st.sidebar.markdown("## Limbus Company Deck Maker")
 
     menu.run()
 

@@ -45,6 +45,14 @@ def real_format(value):
     else:
         return f"{value:.1f}"
 
+bd.start_data()
+
+st.title("림버스 컴퍼니 파티메이커")
+st.write(" \n ")
+st.write(" \n ")
+
+st.sidebar.markdown("## Limbus Company Deck Maker")
+
 bd.make_idList()
 
 Id = st.session_state["id"].copy()
