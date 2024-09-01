@@ -3,6 +3,8 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import os
 
+st.set_page_config(layout="wide")
+
 @st.cache_data
 def get_keyword():
     with open(os.path.join('data','keywords','keywords.html'),

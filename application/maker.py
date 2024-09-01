@@ -2,6 +2,8 @@ import streamlit as st
 from collections import Counter
 from application import baseDef as bd
 
+st.set_page_config(layout="wide")
+
 def has_duplicates(lst):
     return any(count > 1 for count in Counter(lst).values())
 
@@ -72,31 +74,31 @@ with Input:
     sinners = ["이상", "파우스트", "돈키호테", "료슈", "뫼르소", "홍루",
                "히스클리프", "이스마엘", "로쟈", "싱클레어", "오티스", "그레고르"]
 
-    sinner1 = inputSinners.selectbox("", sinners, index=None, placeholder="수감자 선택", label_visibility="collapsed", key="s1")
-    sinner2 = inputSinners.selectbox("", sinners, index=None, placeholder="수감자 선택", label_visibility="collapsed", key="s2")
-    sinner3 = inputSinners.selectbox("", sinners, index=None, placeholder="수감자 선택", label_visibility="collapsed", key="s3")
-    sinner4 = inputSinners.selectbox("", sinners, index=None, placeholder="수감자 선택", label_visibility="collapsed", key="s4")
-    sinner5 = inputSinners.selectbox("", sinners, index=None, placeholder="수감자 선택", label_visibility="collapsed", key="s5")
-    sinner6 = inputSinners.selectbox("", sinners, index=None, placeholder="수감자 선택", label_visibility="collapsed", key="s6")
+    sinner1 = inputSinners.selectbox("수감자1", sinners, index=None, placeholder="수감자 선택", label_visibility="collapsed")
+    sinner2 = inputSinners.selectbox("수감자2", sinners, index=None, placeholder="수감자 선택", label_visibility="collapsed")
+    sinner3 = inputSinners.selectbox("수감자3", sinners, index=None, placeholder="수감자 선택", label_visibility="collapsed")
+    sinner4 = inputSinners.selectbox("수감자4", sinners, index=None, placeholder="수감자 선택", label_visibility="collapsed")
+    sinner5 = inputSinners.selectbox("수감자5", sinners, index=None, placeholder="수감자 선택", label_visibility="collapsed")
+    sinner6 = inputSinners.selectbox("수감자6", sinners, index=None, placeholder="수감자 선택", label_visibility="collapsed")
 
     id1,id2,id3,id4,id5,id6 = "","","","","",""
 
-    try: id1 = Id.loc[(Id["sinner"] == sinner1) & (Id["identity"] == inputId.selectbox("", Id.loc[(Id["sinner"] == sinner1),"identity"], index=None, placeholder="인격 선택", label_visibility="collapsed", key="i1"))].index[0]
+    try: id1 = Id.loc[(Id["sinner"] == sinner1) & (Id["identity"] == inputId.selectbox("인격1", Id.loc[(Id["sinner"] == sinner1),"identity"], index=None, placeholder="인격 선택", label_visibility="collapsed"))].index[0]
     except IndexError:
         pass
-    try: id2 = Id.loc[(Id["sinner"] == sinner2) & (Id["identity"] == inputId.selectbox("", Id.loc[(Id["sinner"] == sinner2),"identity"], index=None, placeholder="인격 선택", label_visibility="collapsed", key="i2"))].index[0]
+    try: id2 = Id.loc[(Id["sinner"] == sinner2) & (Id["identity"] == inputId.selectbox("인격2", Id.loc[(Id["sinner"] == sinner2),"identity"], index=None, placeholder="인격 선택", label_visibility="collapsed"))].index[0]
     except IndexError:
         pass
-    try: id3 = Id.loc[(Id["sinner"] == sinner3) & (Id["identity"] == inputId.selectbox("", Id.loc[(Id["sinner"] == sinner3),"identity"], index=None, placeholder="인격 선택", label_visibility="collapsed", key="i3"))].index[0]
+    try: id3 = Id.loc[(Id["sinner"] == sinner3) & (Id["identity"] == inputId.selectbox("인격3", Id.loc[(Id["sinner"] == sinner3),"identity"], index=None, placeholder="인격 선택", label_visibility="collapsed"))].index[0]
     except IndexError:
         pass
-    try: id4 = Id.loc[(Id["sinner"] == sinner4) & (Id["identity"] == inputId.selectbox("", Id.loc[(Id["sinner"] == sinner4),"identity"], index=None, placeholder="인격 선택", label_visibility="collapsed", key="i4"))].index[0]
+    try: id4 = Id.loc[(Id["sinner"] == sinner4) & (Id["identity"] == inputId.selectbox("인격4", Id.loc[(Id["sinner"] == sinner4),"identity"], index=None, placeholder="인격 선택", label_visibility="collapsed"))].index[0]
     except IndexError:
         pass
-    try: id5 = Id.loc[(Id["sinner"] == sinner5) & (Id["identity"] == inputId.selectbox("", Id.loc[(Id["sinner"] == sinner5),"identity"], index=None, placeholder="인격 선택", label_visibility="collapsed", key="i5"))].index[0]
+    try: id5 = Id.loc[(Id["sinner"] == sinner5) & (Id["identity"] == inputId.selectbox("인격5", Id.loc[(Id["sinner"] == sinner5),"identity"], index=None, placeholder="인격 선택", label_visibility="collapsed"))].index[0]
     except IndexError:
         pass
-    try: id6 = Id.loc[(Id["sinner"] == sinner6) & (Id["identity"] == inputId.selectbox("", Id.loc[(Id["sinner"] == sinner6),"identity"], index=None, placeholder="인격 선택", label_visibility="collapsed", key="i6"))].index[0]
+    try: id6 = Id.loc[(Id["sinner"] == sinner6) & (Id["identity"] == inputId.selectbox("인격6", Id.loc[(Id["sinner"] == sinner6),"identity"], index=None, placeholder="인격 선택", label_visibility="collapsed"))].index[0]
     except IndexError:
         pass
 

@@ -2,7 +2,10 @@ import streamlit as st
 import pandas as pd
 from application import baseDef as bd
 
+st.set_page_config(layout="wide")
+
 MAX_LEVEL = 45
+MAX_UPTIE = 4
 
 st.header("설정")
 st.write(" \n ")
@@ -45,7 +48,7 @@ with Id:
                                 'uptie': st.column_config.NumberColumn(
                                     "동기화",
                                     min_value=3,
-                                    max_value=4,
+                                    max_value=MAX_UPTIE,
                                     step=1
                                 )
                             },
@@ -69,7 +72,7 @@ with Ego:
                                 'uptie': st.column_config.NumberColumn(
                                     "동기화",
                                     min_value=3,
-                                    max_value=4,
+                                    max_value=MAX_UPTIE,
                                     step=1
                                 )
                               },

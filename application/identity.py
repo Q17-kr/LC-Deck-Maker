@@ -1,6 +1,8 @@
 import streamlit as st
 from application import baseDef as bd
 
+st.set_page_config(layout="wide")
+
 def color_sin_char(val):
     color = {
         "분노": 'color: #742820',

@@ -1,6 +1,8 @@
 import streamlit as st
 from application import baseDef as bd
 
+st.set_page_config(layout="wide")
+
 def color_sin_bg(val):
     color = {
         "cost_wrath": 'background-color: #f4cccc',
