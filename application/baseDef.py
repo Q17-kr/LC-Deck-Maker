@@ -68,4 +68,4 @@ def start_data():
         make_idList()
 
     if 'ego' not in st.session_state:
-        make_idList()
+        make_egoList()
