@@ -2,9 +2,10 @@ import streamlit as st
 import os
 from application import baseDef
 
+st.set_page_config(layout="wide")
+
 def main():
     baseDef.start_data()
-    st.set_page_config(layout="wide")
 
     st.title("림버스 컴퍼니 파티메이커")
     st.write(" \n ")
