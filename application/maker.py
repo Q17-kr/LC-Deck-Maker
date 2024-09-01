@@ -123,7 +123,7 @@ with Output:
                "sinCnt_envy"
                ]
     Output.dataframe(makerId[col], hide_index=True,
-                     width=375,
+                     width=376,
                      column_config={'simpSinCnt_wrath': '분노',
                                     'simpSinCnt_lust': '색욕',
                                     'simpSinCnt_sloth': '나태',
