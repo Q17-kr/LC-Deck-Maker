@@ -1,8 +1,8 @@
 import streamlit as st
 from application import baseDef as bd
 
-def color_sin(val):
-    color_map = {
+def color_sin_char(val):
+    color = {
         "분노": 'color: #742820',
         "색욕": 'color: #a0512a',
         "나태": 'color: #cf7305',
@@ -11,11 +11,39 @@ def color_sin(val):
         "오만": 'color: #1e4570',
         "질투": 'color: #69407b',
         "취약": 'color: red',
-        "내성": 'color: gray'
+        "내성": 'color: gray',
+        "0": 'color: white',
+        0: 'color: white'
     }
     
-    return color_map.get(val, "")
+    return color.get(val, "")
 
+def color_sin_bg(val):
+    color = {
+        "simpSinCnt_wrath": 'background-color: #f4cccc',
+        "simpSinCnt_lust": 'background-color: #fce5cd',
+        "simpSinCnt_sloth": 'background-color: #fff2cc',
+        "simpSinCnt_gluttony": 'background-color: #d9ead3',
+        "simpSinCnt_gloom": 'background-color: #d0e0e3',
+        "simpSinCnt_pride": 'background-color: #c9daf8',
+        "simpSinCnt_envy": 'background-color: #d9d2e9',
+
+        "sinCnt_wrath": 'background-color: #f4cccc',
+        "sinCnt_lust": 'background-color: #fce5cd',
+        "sinCnt_sloth": 'background-color: #fff2cc',
+        "sinCnt_gluttony": 'background-color: #d9ead3',
+        "sinCnt_gloom": 'background-color: #d0e0e3',
+        "sinCnt_pride": 'background-color: #c9daf8',
+        "sinCnt_envy": 'background-color: #d9d2e9',
+        }
+    
+    return [color.get(val.name, "") if i != 0 else "" for i in val]
+
+def real_format(value):
+    if isinstance(value, int):
+        return value
+    else:
+        return f"{value:.1f}"
 
 bd.make_idList()
 
@@ -24,11 +52,29 @@ Id['speed_mean'] = (Id['min_speed'] + Id['max_speed']) / 2
 Id['def_sin'] = Id['def_sin'].replace('0', "")
 Id['etc'] = Id['etc'].replace('0', "")
 
-Id = Id.style.applymap(color_sin).format({'speed_mean':'{:.1f}',
-                                          'hp':'{:.0f}',
-                                          'atkLv_mean':'{:.1f}'})
+Id = Id.style.applymap(color_sin_char)\
+    .apply(color_sin_bg)\
+        .format({'speed_mean':real_format,
+                 'hp':'{:.0f}',
+                 'atkLv_mean':real_format,
+                 'simpSinCnt_wrath':real_format,
+                 'simpSinCnt_lust':real_format,
+                 'simpSinCnt_sloth':real_format,
+                 'simpSinCnt_gluttony':real_format,
+                 'simpSinCnt_gloom':real_format,
+                 'simpSinCnt_pride':real_format,
+                 'simpSinCnt_envy':real_format,
+                 'sinCnt_wrath':real_format,
+                 'sinCnt_lust':real_format,
+                 'sinCnt_sloth':real_format,
+                 'sinCnt_gluttony':real_format,
+                 'sinCnt_gloom':real_format,
+                 'sinCnt_pride':real_format,
+                 'sinCnt_envy':real_format
+                 })
 
-colums = ['grade',
+colums = ['sinner','identity',
+          'grade',
           'min_speed', 'max_speed','speed_mean',
           'hp',
           'atkLv_mean','defLv',
@@ -75,18 +121,22 @@ with st.expander("열 선택"):
         if not info.checkbox("수비스킬", True):
             colums.remove("def_type")
             colums.remove("def_sin")
+        info.write("")
 
     with keywords:
         keywords.write("키워드")
         if not keywords.checkbox("화상", True):
             colums.remove("")
+        info.write("")
 
     with etc:
+        etc.write("죄악 자원 수집")
         if etc.radio("죄악 자원 수집",
                      ["기본",'단기전'],
                      index=0,
                      captions=['스토리/거울굴절철도','거울 던전'],
-                     help="'단기전' 옵션은 1~3턴 이내로 전투가 끝나는 경우에 맞춰 설정되었습니다."
+                     help="'단기전' 옵션은 1~3턴 이내로 전투가 끝나는 경우에 맞춰 설정되었습니다.",
+                     label_visibility='collapsed'
                      ) == "기본":
             colums.remove("simpSinCnt_wrath")
             colums.remove("simpSinCnt_lust")
@@ -122,11 +172,13 @@ with st.expander("열 선택"):
             colums.remove('supportPassive_sinCnt')
             colums.remove('supportPassive_type')
             colums.remove('supportPassive')
-        if not etc.checkbox("특이사항", True):
+        if not etc.checkbox("특이사항", False):
             colums.remove("etc")
+        info.write("")
 
 with st.expander("검색"):
     searchList = {"수감자":'sinner',
+                  '인격':'identity',
                   "수비 스킬 자원":'def_sin',
                   '전투 패시브 자원':'battlePassive_sin',
                   '전투 패시브':'battlePassive',
@@ -135,7 +187,14 @@ with st.expander("검색"):
                   }
     col, txt = st.columns(2)
     search = col.radio("검색할 열 선택",
-                      ["수감자", "수비 스킬 자원", '전투 패시브', '전투 패시브 자원', '서포트 패시브', '서포트 패시브 자원'])
+                      ["수감자",
+                       '인격',
+                       "수비 스킬 자원",
+                       '전투 패시브',
+                       '전투 패시브 자원',
+                       '서포트 패시브',
+                       '서포트 패시브 자원'
+                       ])
     searchTxT = txt.text_input("검색어",
                                value="")
     if txt.button("초기화"):
@@ -146,7 +205,7 @@ with st.expander("검색"):
 
 st.dataframe(Id, use_container_width=True,
              hide_index=True,
-             column_order=['sinner','identity'] + colums,
+             column_order=colums,
              column_config={'sinner': st.column_config.Column("수감자", width="small"),
                             'identity': st.column_config.Column("인격", width="medium"),
                             'grade': "등급",
