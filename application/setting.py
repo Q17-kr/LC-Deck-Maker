@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 from application import baseDef as bd
 
-st.set_page_config(layout="wide")
-
 MAX_LEVEL = 45
 MAX_UPTIE = 4
 

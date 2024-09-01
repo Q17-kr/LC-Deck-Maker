@@ -2,8 +2,6 @@ import streamlit as st
 from collections import Counter
 from application import baseDef as bd
 
-st.set_page_config(layout="wide")
-
 def has_duplicates(lst):
     return any(count > 1 for count in Counter(lst).values())
 
