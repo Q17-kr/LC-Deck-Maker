@@ -5,8 +5,6 @@ from application import baseDef as bd
 MAX_LEVEL = 45
 MAX_UPTIE = 4
 
-bd.start_data()
-
 st.title("림버스 컴퍼니 파티메이커")
 st.write(" \n ")
 st.write(" \n ")

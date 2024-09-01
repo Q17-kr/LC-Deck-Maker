@@ -1,5 +1,9 @@
 import streamlit as st
+
+st.set_page_config(layout="wide")
+
 import os
+from application import baseDef as bd
 
 def main():
 
@@ -13,8 +17,14 @@ def main():
                                       st.Page(os.path.join("application","credit.py"),title="Credit", icon=":material/person:")
                                       ]
                           })
+    
+    bd.start_data()
 
-    st.set_page_config(layout="wide")
+    st.title("림버스 컴퍼니 파티메이커")
+    st.write(" \n ")
+    st.write(" \n ")
+
+    st.sidebar.markdown("## Limbus Company Deck Maker")
 
     menu.run()
 
