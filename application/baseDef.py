@@ -9,19 +9,19 @@ def df_to_csv(df:pd.DataFrame):
 
 @st.cache_data
 def get_list():
-    return pd.read_excel(os.path.join("data","list.xlsx")).set_index('id')
+    return pd.read_csv(os.path.join("data","list.csv")).set_index('id')
 
 
 @st.cache_data
 def get_id():
-    id3 = pd.read_excel(os.path.join("data","id3.xlsx")).set_index('id')
-    id4 = pd.read_excel(os.path.join("data","id4.xlsx")).set_index('id')
+    id3 = pd.read_csv(os.path.join("data","id3.csv")).set_index('id')
+    id4 = pd.read_csv(os.path.join("data","id4.csv")).set_index('id')
     return (id3, id4)
 
 @st.cache_data
 def get_ego():
-    ego3 = pd.read_excel(os.path.join("data","ego3.xlsx"), dtype=str).set_index('id')
-    ego4 = pd.read_excel(os.path.join("data","ego4.xlsx"), dtype=str).set_index('id')
+    ego3 = pd.read_csv(os.path.join("data","ego3.csv"), dtype=str).set_index('id')
+    ego4 = pd.read_csv(os.path.join("data","ego4.csv"), dtype=str).set_index('id')
     return (ego3, ego4)
 
 def merge_id(idList:pd.DataFrame, id3:pd.DataFrame, id4:pd.DataFrame):
