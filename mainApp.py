@@ -2,8 +2,6 @@ import streamlit as st
 import os
 from application import baseDef
 
-st.set_page_config(layout="wide")
-
 def main():
     baseDef.start_data()
 
