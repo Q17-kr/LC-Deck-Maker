@@ -140,7 +140,7 @@ with Input:
 
 temp = [sinner1,sinner2,sinner3,sinner4,sinner5,sinner6]
 try: temp.remove('수감자 선택')
-except Exception: pass
+except ValueError: pass
 
 if has_duplicates():
     Input.error("중복된 수감자가 있습니다.")
