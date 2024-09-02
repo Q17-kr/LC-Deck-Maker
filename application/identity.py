@@ -16,7 +16,7 @@ def color_sin_char(val):
         0: 'color: white'
     }
     
-    return color.get(val, "")
+    return color.get(val, "color: black")
 
 def color_sin_bg(val):
     color = {
@@ -37,11 +37,11 @@ def color_sin_bg(val):
         "sinCnt_envy": 'background-color: #d9d2e9',
         }
     
-    return [color.get(val.name, "") if i != 0 else "" for i in val]
+    return [color.get(val.name, "background-color: white") if i != 0 else "background-color: white" for i in val]
 
 def real_format(value):
-    if isinstance(value, int):
-        return value
+    if value % 1 == 0:
+        return f"{value:.0f}"
     else:
         return f"{value:.1f}"
 

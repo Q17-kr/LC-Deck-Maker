@@ -2,6 +2,46 @@ import streamlit as st
 import pandas as pd
 import os
 
+def colum_int(df:pd.DataFrame):
+    for c in ["cost_wrath",
+              "cost_lust",
+              "cost_sloth",
+              "cost_gluttony",
+              "cost_gloom",
+              "cost_pride",
+              "cost_envy",
+              "ovclockcost_wrath",
+              "ovclockcost_lust",
+              "ovclockcost_sloth",
+              "ovclockcost_gluttony",
+              "ovclockcost_gloom",
+              "ovclockcost_pride",
+              "ovclockcost_envy",
+              "atkWeight_slash",
+              "atkWeight_pierce",
+              "atkWeight_blunt",
+              "atkWeight_slash_ovclock",
+              "atkWeight_pierce_ovclock",
+              "atkWeight_blunt_ovclock",
+              "burn",
+              "burn_cnt",
+              "bleed",
+              "bleed_cnt",
+              "tremor",
+              "tremor_cnt",
+              "rupture",
+              "rupture_cnt",
+              "sinking",
+              "sinking_cnt",
+              "poise",
+              "poise_cnt",
+              "charge",
+              "charge_cnt"
+              ]:
+        df[c] = df[c].astype(int)
+    
+    return df
+
 @st.cache_data
 def df_to_csv(df:pd.DataFrame):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
@@ -21,7 +61,9 @@ def get_id():
 @st.cache_data
 def get_ego():
     ego3 = pd.read_csv(os.path.join("data","ego3.csv"), dtype=str).set_index('id')
+    ego3 = colum_int(ego3)
     ego4 = pd.read_csv(os.path.join("data","ego4.csv"), dtype=str).set_index('id')
+    ego4 = colum_int(ego4)
     return (ego3, ego4)
 
 def merge_id(idList:pd.DataFrame, id3:pd.DataFrame, id4:pd.DataFrame):
@@ -69,3 +111,18 @@ def start_data():
 
     if 'ego' not in st.session_state:
         make_egoList()
+
+    if 'set_sinners1' not in st.session_state:
+        st.session_state["set_sinners1"] = [0,0,0,0,0,0]
+    
+    if 'set_id' not in st.session_state:
+        st.session_state["set_id"] = [0,0,0,0,0,0]
+    
+    if 'set_sinners2' not in st.session_state:
+        st.session_state["set_sinners2"] = [0,0,0,0,0,0,0]
+    
+    if 'set_ego' not in st.session_state:
+        st.session_state["set_ego"] = [0,0,0,0,0,0,0]
+
+    if 'ovclock' not in st.session_state:
+        st.session_state["ovclock"] = [False,False,False,False,False,False,False]

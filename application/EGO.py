@@ -12,7 +12,7 @@ def color_sin_bg(val):
         "cost_envy": 'background-color: #d9d2e9'
         }
     
-    return [color.get(val.name, "") if i != "0" else "" for i in val]
+    return [color.get(val.name, "background-color: white") if i != "0" else "background-color: white" for i in val]
 
 def color_sin_char(val):
     color = {
@@ -23,7 +23,7 @@ def color_sin_char(val):
         0: 'color: white'
         }
     
-    return color.get(val, "")
+    return color.get(val, "color: black")
 
 bd.make_egoList()
 
