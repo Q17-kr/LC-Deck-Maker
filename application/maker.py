@@ -139,9 +139,8 @@ with Input:
     except ValueError: pass
 
 temp = [sinner1,sinner2,sinner3,sinner4,sinner5,sinner6]
-try: temp.remove('수감자 선택')
-except ValueError: pass
-
+if '수감자 선택' in temp:
+    temp.remove('수감자 선택')
 if has_duplicates(temp):
     Input.error("중복된 수감자가 있습니다.")
 
