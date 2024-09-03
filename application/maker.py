@@ -22,6 +22,14 @@ def color_sin_char(val):
     
     return color.get(val, "")
 
+def color_sin_char_zero(val):
+    color = {
+        "0": 'color: white',
+        0: 'color: white'
+    }
+    
+    return color.get(val, "")
+
 def color_sin_bg(val):
     color = {
         "simpSinCnt_wrath": 'background-color: #f4cccc',
@@ -167,7 +175,8 @@ with Output:
                ]
     if not makerId[col].empty:
         show_sinCnt = makerId[col].style.apply(color_sin_bg).apply(lambda x:
-                                                                   ['color: black' if not pd.isna(i) else "" for i in x]).format(real_format)
+                                                                   ['color: black' if not pd.isna(i) else "" for i in x])\
+                                                                    .applymap(color_sin_char_zero).format(real_format)
     else:
         show_sinCnt = pd.DataFrame({'sinCnt_wrath': [],
                                     'sinCnt_lust': [],
@@ -353,7 +362,8 @@ with st.expander("주요 E.G.O"):
     
     if not makerEgo[Col].empty:
         show_sinCost = sinCost.style.apply(color_sin_bg).apply(lambda x:
-                                                                     ['color: black' if not pd.isna(i) else "" for i in x])#.format(real_format)
+                                                                     ['color: black' if not pd.isna(i) else "" for i in x])\
+                                                                        .applymap(color_sin_char_zero)
     else:
         show_sinCost = sinCost
 
