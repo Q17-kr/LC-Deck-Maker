@@ -60,9 +60,9 @@ def get_id():
 
 @st.cache_data
 def get_ego():
-    ego3 = pd.read_csv(os.path.join("data","ego3.csv"), dtype=str).set_index('id')
+    ego3 = pd.read_csv(os.path.join("data","ego3.csv")).set_index('id')
     ego3 = colum_int(ego3)
-    ego4 = pd.read_csv(os.path.join("data","ego4.csv"), dtype=str).set_index('id')
+    ego4 = pd.read_csv(os.path.join("data","ego4.csv")).set_index('id')
     ego4 = colum_int(ego4)
     return (ego3, ego4)
 
