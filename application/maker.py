@@ -205,7 +205,7 @@ with Output:
                                     'sinCnt_envy': '질투'
                                     })
     total = makerId[col].sum()
-    Output.markdown(f'''<table border="1">
+    Output.markdown(f'''<table border="1" width="380">
   <thead>
     <tr>
       <th style="background-color: #ea9999; color: black;">{real_format(total[0])}</th>
@@ -379,27 +379,27 @@ with st.expander("주요 E.G.O"):
                                      "cost_envy":"질투",
                                      })
     Total = sinCost.sum()
-    eOutput.markdown(f'''<table border="1">
+    eOutput.markdown(f'''<table border="1" width="380">
   <thead>
     <tr>
-      <th style="background-color: #ea9999; color: black;">-{Total[0]}</th>
-      <th style="background-color: #f9cb9c; color: black;">-{Total[1]}</th>
-      <th style="background-color: #ffe599; color: black;">-{Total[2]}</th>
-      <th style="background-color: #b6d7a8; color: black;">-{Total[3]}</th>
-      <th style="background-color: #a2c4c9; color: black;">-{Total[4]}</th>
-      <th style="background-color: #a4c2f4; color: black;">-{Total[5]}</th>
-      <th style="background-color: #b4a7d6; color: black;">-{Total[6]}</th>
+      <th style="background-color: #ea9999; color: black;">-{real_format(Total[0])}</th>
+      <th style="background-color: #f9cb9c; color: black;">-{real_format(Total[1])}</th>
+      <th style="background-color: #ffe599; color: black;">-{real_format(Total[2])}</th>
+      <th style="background-color: #b6d7a8; color: black;">-{real_format(Total[3])}</th>
+      <th style="background-color: #a2c4c9; color: black;">-{real_format(Total[4])}</th>
+      <th style="background-color: #a4c2f4; color: black;">-{real_format(Total[5])}</th>
+      <th style="background-color: #b4a7d6; color: black;">-{real_format(Total[6])}</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="background-color: #f4cccc; color: black;">{total[0] - int(Total[0]):.0f}</td>
-      <td style="background-color: #fce5cd; color: black;">{total[1] - int(Total[1]):.0f}</td>
-      <td style="background-color: #fff2cc; color: black;">{total[2] - int(Total[2]):.0f}</td>
-      <td style="background-color: #d9ead3; color: black;">{total[3] - int(Total[3]):.0f}</td>
-      <td style="background-color: #d0e0e3; color: black;">{total[4] - int(Total[4]):.0f}</td>
-      <td style="background-color: #c9daf8; color: black;">{total[5] - int(Total[5]):.0f}</td>
-      <td style="background-color: #d9d2e9; color: black;">{total[6] - int(Total[6]):.0f}</td>
+      <td style="background-color: #f4cccc; color: black;">{real_format(total[0] - int(Total[0]))}</td>
+      <td style="background-color: #fce5cd; color: black;">{real_format(total[1] - int(Total[1]))}</td>
+      <td style="background-color: #fff2cc; color: black;">{real_format(total[2] - int(Total[2]))}</td>
+      <td style="background-color: #d9ead3; color: black;">{real_format(total[3] - int(Total[3]))}</td>
+      <td style="background-color: #d0e0e3; color: black;">{real_format(total[4] - int(Total[4]))}</td>
+      <td style="background-color: #c9daf8; color: black;">{real_format(total[5] - int(Total[5]))}</td>
+      <td style="background-color: #d9d2e9; color: black;">{real_format(total[6] - int(Total[6]))}</td>
     </tr>
   </tbody>
 </table>

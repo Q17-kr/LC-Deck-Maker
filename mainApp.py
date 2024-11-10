@@ -14,7 +14,7 @@ def main():
                                   st.Page(os.path.join("application","keywords.py"),title="키워드 목록", icon=":material/manage_search:")
                                   ],
                           "Settings":[st.Page(os.path.join("application","setting.py"),title="동기화 / 레벨 설정", icon=":material/settings:"),
-                                      st.Page(os.path.join("application","credit.py"),title="Credit", icon=":material/person:")
+                                      st.Page(os.path.join("application","info.py"),title="Info", icon=":material/person:")
                                       ]
                           })
     
