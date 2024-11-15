@@ -199,7 +199,7 @@ with st.expander("열 선택"):
         if not keywords.checkbox("특수 키워드", True, help='자가수급 미포함'):
             colums.remove("special_keyword")
         keywords.markdown('---')
-        if not keywords.checkbox("가중치 증가", False):
+        if not keywords.checkbox("추가 가중치", False):
             colums.remove("atkWeight")
         if not keywords.checkbox("도발치", False):
             colums.remove("aggro")
@@ -296,10 +296,10 @@ with st.expander("검색"):
                        '인격',
                        "수비 스킬 자원",
                        '특수 키워드',
-                       '전투 패시브',
                        '전투 패시브 자원',
-                       '서포트 패시브',
-                       '서포트 패시브 자원'
+                       '전투 패시브',
+                       '서포트 패시브 자원',
+                       '서포트 패시브'
                        ], index=3)
     searchTxT = txt.text_input("검색어",
                                value="")
@@ -309,7 +309,7 @@ with st.expander("검색"):
     if searchTxT != "":
         Id = Id.loc[Id[searchList[search]].str.find(searchTxT) >= 0]
 
-st.dataframe(Id, use_container_width=True,
+st.dataframe(Id, use_container_width=True, height=380,
              hide_index=True,
              column_order=colums,
              column_config={'sinner': st.column_config.Column("수감자", width="small"),
@@ -325,7 +325,7 @@ st.dataframe(Id, use_container_width=True,
                             'pierce_coinCnt': st.column_config.Column('관통', help="코인 개수"),
                             'blunt_coinCnt': st.column_config.Column('타격', help="코인 개수"),
                             'def_type': '수비 스킬',
-                            'def_sin': "자원 - 수비",
+                            'def_sin': "수비 스킬 자원",
                             'simpSinCnt_wrath': '분노',
                             'simpSinCnt_lust': '색욕',
                             'simpSinCnt_sloth': '나태',
@@ -365,7 +365,7 @@ st.dataframe(Id, use_container_width=True,
                             'charge_cnt': '충전 횟수',
                             'charge_barrier': '충전 역장',
                             'special_keyword': st.column_config.TextColumn('특수 키워드', help='자가수급 미포함'),
-                            'atkWeight': '가중치 증가',
+                            'atkWeight': '추가 가중치',
                             'aggro': '도발치',
                             'haste': st.column_config.NumberColumn('신속', help='자가수급 미포함'),
                             'bind': '속박',
