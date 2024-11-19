@@ -309,7 +309,7 @@ with st.expander("검색"):
     if searchTxT != "":
         Id = Id.loc[Id[searchList[search]].str.find(searchTxT) >= 0]
 
-st.dataframe(Id, use_container_width=True, height=380,
+st.dataframe(Id, use_container_width=True, height=600,
              hide_index=True,
              column_order=colums,
              column_config={'sinner': st.column_config.Column("수감자", width="small"),
@@ -382,11 +382,11 @@ st.dataframe(Id, use_container_width=True, height=380,
                             'damage_up': st.column_config.NumberColumn('피해량 증가', help='자가수급 미포함, 속성 피해량 증가 포함'),
                             'damage_down': st.column_config.NumberColumn('피해량 감소', help='속성 피해량 감소 포함'),
                             'battlePassive_sin': st.column_config.TextColumn('자원', help="전투 패시브"),
-                            'battlePassive_sinCnt': st.column_config.TextColumn('필요 개수', help="전투 패시브"),
+                            'battlePassive_sinCnt': st.column_config.TextColumn('필요량', help="전투 패시브"),
                             'battlePassive_type': st.column_config.TextColumn('종류', help="전투 패시브"),
                             'battlePassive': '전투 패시브',
                             'supportPassive_sin': st.column_config.TextColumn('자원', help="서포트 패시브"),
-                            'supportPassive_sinCnt': st.column_config.TextColumn('필요 개수', help="서포트 패시브"),
+                            'supportPassive_sinCnt': st.column_config.TextColumn('필요량', help="서포트 패시브"),
                             'supportPassive_type': st.column_config.TextColumn('종류', help="서포트 패시브"),
                             'supportPassive': '서포트 패시브',
                             'etc': '특이사항',

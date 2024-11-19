@@ -245,7 +245,7 @@ else:
     colums.remove('ovclock_target')
 
 with st.expander("열 선택"):
-    info, keywords = st.columns(2)
+    info, keywords1, keywords2 = st.columns(3)
 
     with info:
         info.write("")
@@ -289,24 +289,24 @@ with st.expander("열 선택"):
             colums.remove("passive")
         info.write("")
 
-    with keywords:
-        keywords.write("키워드")
+    with keywords1:
+        keywords1.write("키워드")
         
-        if not keywords.checkbox("화상", False):
+        if not keywords1.checkbox("화상", False):
             if not ovclock:
                 colums.remove("burn")
                 colums.remove('burn_cnt')
             else:
                 colums.remove("ovclock_burn")
                 colums.remove('ovclock_burn_cnt')
-        if not keywords.checkbox("출혈", False):
+        if not keywords1.checkbox("출혈", False):
             if not ovclock:
                 colums.remove("bleed")
                 colums.remove('bleed_cnt')
             else:
                 colums.remove("ovclock_bleed")
                 colums.remove('ovclock_bleed_cnt')
-        if not keywords.checkbox("진동", False):
+        if not keywords1.checkbox("진동", False):
             if not ovclock:
                 colums.remove("tremor")
                 colums.remove('tremor_cnt')
@@ -321,21 +321,21 @@ with st.expander("열 선택"):
                 colums.remove('ovclock_amplitude_conversion')
                 colums.remove('ovclock_amplitude_entangle')
                 colums.remove('ovclock_tremor_selfCnt')
-        if not keywords.checkbox("파열", False):
+        if not keywords1.checkbox("파열", False):
             if not ovclock:
                 colums.remove("rupture")
                 colums.remove('rupture_cnt')
             else:
                 colums.remove("ovclock_rupture")
                 colums.remove('ovclock_rupture_cnt')
-        if not keywords.checkbox("침잠", False):
+        if not keywords1.checkbox("침잠", False):
             if not ovclock:
                 colums.remove("sinking")
                 colums.remove('sinking_cnt')
             else:
                 colums.remove("ovclock_sinking")
                 colums.remove('ovclock_sinking_cnt')
-        if not keywords.checkbox("호흡", False):
+        if not keywords1.checkbox("호흡", False):
             if not ovclock:
                 colums.remove("poise")
                 colums.remove('poise_cnt')
@@ -346,7 +346,7 @@ with st.expander("열 선택"):
                 colums.remove('ovclock_poise_cnt')
                 colums.remove("ovclock_poise_give")
                 colums.remove('ovclock_poise_cnt_give')
-        if not keywords.checkbox("충전", False):
+        if not keywords1.checkbox("충전", False):
             if not ovclock:
                 colums.remove("charge")
                 colums.remove('charge_cnt')
@@ -355,92 +355,94 @@ with st.expander("열 선택"):
                 colums.remove("ovclock_charge")
                 colums.remove("ovclock_charge_cnt")
                 colums.remove('ovclock_charge_barrier')
-        if not keywords.checkbox("특수 키워드", True):
+        if not keywords1.checkbox("특수 키워드", True):
             if not ovclock:
                 colums.remove("special_keyword")
             else:
                 colums.remove('ovclock_special_keyword')
-        if not keywords.checkbox("추가 가중치", True):
+        if not keywords1.checkbox("추가 가중치", True):
             if not ovclock:
                 colums.remove("atkWeight")
             else:
                 colums.remove('ovclock_atkWeight')
-        if not keywords.checkbox("도발치", False):
+    
+    with keywords2:
+        if not keywords2.checkbox("도발치", False):
             if not ovclock:
                 colums.remove("aggro")
             else:
                 colums.remove('ovclock_aggro')
-        if not keywords.checkbox("신속", False):
+        if not keywords2.checkbox("신속", False):
             if not ovclock:
                 colums.remove("haste")
             else:
                 colums.remove('ovclock_haste')
-        if not keywords.checkbox("속박", False):
+        if not keywords2.checkbox("속박", False):
             if not ovclock:
                 colums.remove("bind")
             else:
                 colums.remove('ovclock_bind')
-        if not keywords.checkbox("보호", False):
+        if not keywords2.checkbox("보호", False):
             if not ovclock:
                 colums.remove("protect")
             else:
                 colums.remove('ovclock_protect')
-        if not keywords.checkbox("취약", False):
+        if not keywords2.checkbox("취약", False):
             if not ovclock:
                 colums.remove("fragile")
             else:
                 colums.remove('ovclock_fragile')
-        if not keywords.checkbox("마비", False):
+        if not keywords2.checkbox("마비", False):
             if not ovclock:
                 colums.remove("paralyze")
             else:
                 colums.remove('ovclock_paralyze')
-        if not keywords.checkbox("위력 증가", False):
+        if not keywords2.checkbox("위력 증가", False):
             if not ovclock:
                 colums.remove("power_up")
             else:
                 colums.remove('ovclock_power_up')
-        if not keywords.checkbox("위력 감소", False):
+        if not keywords2.checkbox("위력 감소", False):
             if not ovclock:
                 colums.remove("power_down")
             else:
                 colums.remove('ovclock_power_down')
-        if not keywords.checkbox("더하기 코인 약화", False):
+        if not keywords2.checkbox("더하기 코인 약화", False):
             if not ovclock:
                 colums.remove("Pcoin_drop")
             else:
                 colums.remove('ovclock_Pcoin_drop')
-        if not keywords.checkbox("공격 레벨 증가", False):
+        if not keywords2.checkbox("공격 레벨 증가", False):
             if not ovclock:
                 colums.remove("offLv_up")
             else:
                 colums.remove('ovclock_offLv_up')
-        if not keywords.checkbox("공격 레벨 감소", False):
+        if not keywords2.checkbox("공격 레벨 감소", False):
             if not ovclock:
                 colums.remove("offLv_down")
             else:
                 colums.remove('ovclock_offLv_down')
-        if not keywords.checkbox("방어 레벨 증가", False):
+        if not keywords2.checkbox("방어 레벨 증가", False):
             if not ovclock:
                 colums.remove("defLv_up")
             else:
                 colums.remove('ovclock_defLv_up')
-        if not keywords.checkbox("방어 레벨 감소", False):
+        if not keywords2.checkbox("방어 레벨 감소", False):
             if not ovclock:
                 colums.remove("defLv_down")
             else:
                 colums.remove('ovclock_defLv_down')
-        if not keywords.checkbox("피해량 증가", False):
+        if not keywords2.checkbox("피해량 증가", False):
             if not ovclock:
                 colums.remove("damage_up")
             else:
                 colums.remove('ovclock_damage_up')
-        if not keywords.checkbox("피해량 감소", False):
+        if not keywords2.checkbox("피해량 감소", False):
             if not ovclock:
                 colums.remove("damage_down")
             else:
                 colums.remove('ovclock_damage_down')
-        if not keywords.checkbox("타겟 우선도", False):
+        if not keywords2.checkbox("타겟 우선도", False):
             if not ovclock:
                 colums.remove("target")
             else:
@@ -463,7 +465,7 @@ with st.expander("검색"):
         ego = ego.loc[ego[searchList[search]].str.find(searchTxT) >= 0]
 
 st.dataframe(ego, use_container_width=True,
-             height=430,
+             height=530,
              hide_index=True,
              column_order=colums,
              column_config={'sinner': st.column_config.Column("수감자", width="small"),

@@ -49,7 +49,7 @@ def df_to_csv(df:pd.DataFrame):
 
 @st.cache_data
 def get_list():
-    return pd.read_csv(os.path.join("data","list.csv")).set_index('id')
+    return pd.read_csv(os.path.join("data","list.csv"))#.set_index('id')
 
 
 @st.cache_data
@@ -67,7 +67,7 @@ def get_ego():
     return (ego3, ego4)
 
 def merge_id(idList:pd.DataFrame, id3:pd.DataFrame, id4:pd.DataFrame):
-    idList = idList.copy()
+    idList = idList.copy().set_index("id")
     id3 = id3.copy()
     id4 = id4.copy()
 
@@ -82,7 +82,7 @@ def merge_id(idList:pd.DataFrame, id3:pd.DataFrame, id4:pd.DataFrame):
     return id3
 
 def merge_ego(egoList:pd.DataFrame, ego3:pd.DataFrame, ego4:pd.DataFrame):
-    egoList = egoList.copy()
+    egoList = egoList.copy().set_index("id")
     ego3 = ego3.copy()
     ego4 = ego4.copy()
 
@@ -113,16 +113,19 @@ def start_data():
         make_egoList()
 
     if 'set_sinners1' not in st.session_state:
-        st.session_state["set_sinners1"] = [0,0,0,0,0,0]
+        st.session_state["set_sinners1"] = [None,None,None,None,None,None]
     
     if 'set_id' not in st.session_state:
-        st.session_state["set_id"] = [0,0,0,0,0,0]
+        st.session_state["set_id"] = [None,None,None,None,None,None]
     
     if 'set_sinners2' not in st.session_state:
-        st.session_state["set_sinners2"] = [0,0,0,0,0,0,0]
+        st.session_state["set_sinners2"] = [None,None,None,None,None,None,None]
     
     if 'set_ego' not in st.session_state:
-        st.session_state["set_ego"] = [0,0,0,0,0,0,0]
+        st.session_state["set_ego"] = [None,None,None,None,None,None,None]
+
+    if 'set_sup' not in st.session_state:
+        st.session_state["set_sup"] = [None,None,None,None,None,None,None,None,None,None,None,None]
 
     if 'ovclock' not in st.session_state:
         st.session_state["ovclock"] = [False,False,False,False,False,False,False]

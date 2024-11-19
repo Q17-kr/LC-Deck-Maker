@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from application import baseDef as bd
 
-MAX_LEVEL = 45
+MAX_LEVEL = 50
 MAX_UPTIE = 4
 
 st.header("설정")

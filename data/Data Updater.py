@@ -50,7 +50,7 @@ ego4.to_csv("data\\ego4.csv")
 identity = identity3.loc[:,["sinner","identity"]]
 ego = ego3.loc[:,["sinner","ego"]]
 
-identity["Lv"] = 45
+identity["Lv"] = 50
 identity["uptie"] = 3
 ego["uptie"] = 3
 
