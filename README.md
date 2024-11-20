@@ -38,5 +38,11 @@ _(기본값: 4동기화/최대 레벨)_
 > 접속 시 위와 같은 화면이 뜨면 버튼을 누르고 기다리시면 이후 정상적으로 이용이 가능합니다.
 
 ---
+### 데이터 시트
+
+[<u>인격 / 에고</u>](https://docs.google.com/spreadsheets/d/1u295ihzY_JHaYQ7ixJ2zHYLgvMV48KjHwDbjEAAVDXc/edit?usp=sharing)  
+[<u>키워드</u>](https://docs.google.com/spreadsheets/d/1hWKzYH1rxQ_bnHMY0zukqwfkSVGXbW4syJVboPIVyfU/edit?usp=sharing)
+
+---
 
 모든 데이터의 권리와 저작권은 프로젝트 문 및 해당 저작권자의 소유입니다.
