@@ -4,7 +4,7 @@ st.markdown(
 '''
 ---
 
-###### 제작자: [Q17](https://github.com/Q17-kr)
+###### 제작자: [Q17](https://github.com/Q17-kr/LC-Deck-Maker.git)
 
 - 현재 버전 (2024.11.20)  
 **1.0.0**
