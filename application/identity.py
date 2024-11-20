@@ -63,8 +63,8 @@ Id = Id.style.applymap(color_sin_char)\
                  'max_speed':real_format,
                  'speed_mean':real_format,
                  'hp':'{:.0f}',
-                 'atkLv_mean':real_format,
-                 'defLv':real_format,
+                 "atkLv":real_format,
+                 "defenceLv":real_format,
                  'simpSinCnt_wrath':real_format,
                  'simpSinCnt_lust':real_format,
                  'simpSinCnt_sloth':real_format,
@@ -117,7 +117,7 @@ colums = ['sinner','identity',
           'grade',
           'min_speed', 'max_speed','speed_mean',
           'hp',
-          'atkLv_mean','defLv',
+          "atkLv","defenceLv",
           'slash_coinCnt','pierce_coinCnt','blunt_coinCnt',
           'def_type','def_sin',
           'simpSinCnt_wrath','simpSinCnt_lust','simpSinCnt_sloth','simpSinCnt_gluttony','simpSinCnt_gloom','simpSinCnt_pride','simpSinCnt_envy',
@@ -141,9 +141,9 @@ with st.expander("열 선택"):
         if not info.checkbox("체력", True):
             colums.remove("hp")
         if not info.checkbox("공격 레벨", False, help="평균값"):
-            colums.remove("atkLv_mean")
+            colums.remove("atkLv")
         if not info.checkbox("방어 레벨", False):
-            colums.remove("defLv")
+            colums.remove("defenceLv")
         info.markdown('''---''')
         info.write("속도")
         if not info.checkbox("최솟값", False):
@@ -319,8 +319,8 @@ st.dataframe(Id, use_container_width=True, height=600,
                             'max_speed': "최대 속도",
                             'speed_mean': '평균 속도',
                             'hp': '최대 체력',
-                            'atkLv_mean': st.column_config.Column('공격 레벨', help="평균값"),
-                            'defLv': '방어 레벨',
+                            'atkLv': st.column_config.Column('공격 레벨', help="평균값"),
+                            "defenceLv": '방어 레벨',
                             'slash_coinCnt': st.column_config.Column('참격', help="코인 개수"),
                             'pierce_coinCnt': st.column_config.Column('관통', help="코인 개수"),
                             'blunt_coinCnt': st.column_config.Column('타격', help="코인 개수"),

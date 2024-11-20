@@ -28,10 +28,10 @@ with Id:
     if lv.button("레벨 초기화"):
         idList["Lv"] = MAX_LEVEL
     if t.button("동기화 일괄 변경", key="i"):
-        if (idList["uptie"] == 3).any():
-            idList["uptie"] = 4
-        else:
+        if (idList["uptie"] == 4).any():
             idList["uptie"] = 3
+        else:
+            idList["uptie"] = 4
     
     idList = Id.data_editor(idList, hide_index=True,
                             column_order=['sinner','identity',"Lv",'uptie'],

@@ -24,19 +24,19 @@ ego3["poise"] = ego3["poise"].apply(ox)
 ego3["poise_cnt"] = ego3["poise_cnt"].apply(ox)
 ego3["charge"] = ego3["charge"].apply(ox)
 ego3["charge_cnt"] = ego3["charge_cnt"].apply(ox)
-ego3["poise"] = ego3["ovclock_poise"].apply(ox)
-ego3["poise_cnt"] = ego3["ovclock_poise_cnt"].apply(ox)
-ego3["charge"] = ego3["ovclock_charge"].apply(ox)
-ego3["charge_cnt"] = ego3["ovclock_charge_cnt"].apply(ox)
+ego3["ovclock_poise"] = ego3["ovclock_poise"].apply(ox)
+ego3["ovclock_poise_cnt"] = ego3["ovclock_poise_cnt"].apply(ox)
+ego3["ovclock_charge"] = ego3["ovclock_charge"].apply(ox)
+ego3["ovclock_charge_cnt"] = ego3["ovclock_charge_cnt"].apply(ox)
 
 ego4["poise"] = ego4["poise"].apply(ox)
 ego4["poise_cnt"] = ego4["poise_cnt"].apply(ox)
 ego4["charge"] = ego4["charge"].apply(ox)
 ego4["charge_cnt"] = ego4["charge_cnt"].apply(ox)
-ego4["poise"] = ego4["ovclock_poise"].apply(ox)
-ego4["poise_cnt"] = ego4["ovclock_poise_cnt"].apply(ox)
-ego4["charge"] = ego4["ovclock_charge"].apply(ox)
-ego4["charge_cnt"] = ego4["ovclock_charge_cnt"].apply(ox)
+ego4["ovclock_poise"] = ego4["ovclock_poise"].apply(ox)
+ego4["ovclock_poise_cnt"] = ego4["ovclock_poise_cnt"].apply(ox)
+ego4["ovclock_charge"] = ego4["ovclock_charge"].apply(ox)
+ego4["ovclock_charge_cnt"] = ego4["ovclock_charge_cnt"].apply(ox)
 
 
 
@@ -51,7 +51,7 @@ identity = identity3.loc[:,["sinner","identity"]]
 ego = ego3.loc[:,["sinner","ego"]]
 
 identity["Lv"] = 50
-identity["uptie"] = 3
-ego["uptie"] = 3
+identity["uptie"] = 4
+ego["uptie"] = 4
 
 pd.concat([identity,ego]).to_csv("data\\list.csv")
