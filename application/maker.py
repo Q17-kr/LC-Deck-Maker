@@ -603,7 +603,7 @@ with st.expander("서포트 패시브"):
         except TypeError:
             continue
     
-    makerSup = Id.loc[[i for i in supNum if i > 0]]
+    makerSup = Id.loc[[i for i in supNum if i > 0 and sinners[int((i%100000)/1000)-1] in Ssinners]]
     supportpassive.dataframe(makerSup.style.applymap(color_sin_char),
                              use_container_width=True, height=457,
                              hide_index=True,
