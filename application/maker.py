@@ -237,7 +237,7 @@ with Output:
     if not makerId[col].empty:
         show_sinCnt = makerId[col].style.apply(color_sin_bg).apply(lambda x:
                                                                    ['color: black' if not pd.isna(i) else "" for i in x])\
-                                                                    .applymap(color_sin_char_zero).format(real_format)
+                                                                    .map(color_sin_char_zero).format(real_format)
     else:
         show_sinCnt = pd.DataFrame({'sinCnt_wrath': [],
                                     'sinCnt_lust': [],
@@ -413,7 +413,7 @@ with st.expander("주요 E.G.O"):
                                  "cost_envy":[]
                                  })
     
-    egoNum = [0,0,0,0,0,0]
+    egoNum = [0,0,0,0,0,0,0]
     for i in range(7):
         try:
             egoNum[i] = int(li.loc[(li["sinner"] == tempE[i]) & (li["ego"] == egoList[tempE[i]][st.session_state["set_ego"][i]]), "id"])
@@ -445,7 +445,7 @@ with st.expander("주요 E.G.O"):
     if not makerEgo[Col].empty:
         show_sinCost = sinCost.style.apply(color_sin_bg).apply(lambda x:
                                                                      ['color: black' if not pd.isna(i) else "" for i in x])\
-                                                                        .applymap(color_sin_char_zero).format(real_format)
+                                                                        .map(color_sin_char_zero).format(real_format)
     else:
         show_sinCost = sinCost
 
@@ -489,7 +489,7 @@ with st.expander("주요 E.G.O"):
 
 with st.expander("스탯 / 전투 패시브"):
     stat, battlepassive = st.columns(2)
-    stat.dataframe(makerId.style.applymap(color_sin_char).format({'hp':real_format,'atkLv_mean':real_format}),
+    stat.dataframe(makerId.style.map(color_sin_char).format({'hp':real_format,'atkLv_mean':real_format}),
                    use_container_width=True,
                    hide_index=True,
                    column_order=['identity','min_speed','max_speed','hp','atkLv_mean','defLv','battlePassive_sin','battlePassive_sinCnt','battlePassive_type'],
@@ -604,7 +604,7 @@ with st.expander("서포트 패시브"):
             continue
     
     makerSup = Id.loc[[i for i in supNum if i > 0 and sinners[int((i%100000)/1000)-1] in Ssinners]]
-    supportpassive.dataframe(makerSup.style.applymap(color_sin_char),
+    supportpassive.dataframe(makerSup.style.map(color_sin_char),
                              use_container_width=True, height=457,
                              hide_index=True,
                              column_order=['supportPassive_sin','supportPassive_sinCnt','supportPassive_type','supportPassive'],
