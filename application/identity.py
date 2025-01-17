@@ -99,11 +99,11 @@ with st.expander("열 선택"):
         info.markdown('---')
         info.write("코인 개수")
         if not info.checkbox("참격", True, key="coinS"):
-            colums.remove("resist_slash")
+            colums.remove("slash_coinCnt")
         if not info.checkbox("관통", True, key="coinP"):
-            colums.remove("resist_pierce")
+            colums.remove("pierce_coinCnt")
         if not info.checkbox("타격", True, key="coinB"):
-            colums.remove("resist_blunt")
+            colums.remove("blunt_coinCnt")
         info.markdown('---')
         if not info.checkbox("수비 스킬", True):
             colums.remove("def_type")
