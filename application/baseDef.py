@@ -76,7 +76,7 @@ def merge_id(idList:pd.DataFrame, id3:pd.DataFrame, id4:pd.DataFrame):
             id3.loc[i] = id4.loc[i]
 
     id3["hp"] = round((idList['Lv'] * id3['hp_coeffic']) + id3['hp_const'])
-    id3["atkLv"] = idList['Lv'] + float(id3['atkLv_mean'])
+    id3["atkLv"] = idList['Lv'] + id3['atkLv_mean']
     id3["defenceLv"] = idList['Lv'] + id3['defLv']
 
     return id3
